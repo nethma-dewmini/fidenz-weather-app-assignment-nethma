@@ -1,27 +1,25 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const citySchema = new Schema(
-    {
-        citycode: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        cityname: {
-            type: String,
-            required: true,
-        },
-        temperature:{
-            type: Number,
-            required: true,
-        },
-        status:{
-            type: String,
-            required: true,
-        },
-    }
-)
+const citySchema = new Schema({
+  CityCode: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  CityName: {
+    type: String,
+    required: true,
+  },
+  LastFetched: {
+    type: Date,
+    required: null,
+  },
+  WeatherData: {
+    type: Object,
+    required: {},
+  },
+});
 
-module.exports = mongoose.model('City', citySchema)
+module.exports = mongoose.model("City", citySchema);
