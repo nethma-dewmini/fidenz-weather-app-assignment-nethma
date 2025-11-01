@@ -1,13 +1,12 @@
-import { useState } from 'react'
 import './App.css'
 
+import Dashboard from './pages/Dashboard'
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline" >weather app</h1>
-      <p>fetching weather data...</p>
+    <div className="App min-h-screen flex flex-col items-center p-5 box-border">
+      <Dashboard />
     </div>
   )
 }
