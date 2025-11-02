@@ -104,7 +104,7 @@ const ViewWeather = () => {
       </div>
 
 <footer className="footer-text text-center text-gray-400 text-sm py-10">
-        © 2021 Fidenz Technologies
+        2021 Fidenz Technologies
       </footer>
     </div>
   );

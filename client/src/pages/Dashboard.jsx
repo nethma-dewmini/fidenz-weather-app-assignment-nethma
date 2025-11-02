@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import WeatherCard from "../components/WeatherCard";
 import Header from "../components/Header";
+import backgroundImg from "../assets/background.png";
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -53,7 +54,16 @@ if (!isAuthenticated) {
   }, [isAuthenticated, getAccessTokenSilently]);
 
   return (
-    <div className="dashboard-container w-full max-w-6xl">
+    <div 
+      className="dashboard-container w-full max-w-6xl"
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+      }}
+    >
       <Header />
 
       {loading && (

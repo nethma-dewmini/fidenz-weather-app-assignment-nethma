@@ -5,3 +5,11 @@
 body {
     @apply bg-gradient-to-b from-[#232526] to-[#414345] text-white min-h-screen font-sans;
 }
+
+.app-background {
+    
+@apply bg-cover bg-center bg-fixed;
+
+background-image: url('./assets/background.jpg');
+
+}
