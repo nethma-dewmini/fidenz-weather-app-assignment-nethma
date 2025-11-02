@@ -2,19 +2,19 @@
 
 A secure, modern weather application built with React frontend and Node.js backend, featuring Auth0 authentication and displaying real-time weather information for multiple cities.
 
-## 🌟 Features
+## Features
 
-- **🔐 Authentication & Authorization**: Secure login/logout using Auth0
-- **👤 Protected Routes**: Only authenticated users can access weather data
-- **🌤️ Dashboard View**: Display weather cards for multiple cities with real-time data
-- **📊 Detailed Weather View**: Click on any city card to view comprehensive weather information
-- **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
-- **⚡ Real-time Data**: Fetches live weather data from OpenWeatherMap API
-- **💾 Data Caching**: Server-side caching to reduce API calls and improve performance
-- **🎨 Interactive UI**: Modern gradient cards with hover effects
-- **🔒 JWT Token Validation**: Secure API endpoints with JWT Bearer tokens
+- ** Authentication & Authorization**: Secure login/logout using Auth0
+- ** Protected Routes**: Only authenticated users can access weather data
+- ** Dashboard View**: Display weather cards for multiple cities with real-time data
+- ** Detailed Weather View**: Click on any city card to view comprehensive weather information
+- ** Responsive Design**: Works seamlessly on desktop and mobile devices
+- ** Real-time Data**: Fetches live weather data from OpenWeatherMap API
+- ** Data Caching**: Server-side caching to reduce API calls and improve performance
+- ** Interactive UI**: Modern gradient cards with hover effects
+- ** JWT Token Validation**: Secure API endpoints with JWT Bearer tokens
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 - **React 18+**: Modern React with hooks
@@ -38,7 +38,7 @@ A secure, modern weather application built with React frontend and Node.js backe
 - **Bearer Token Authentication**: Secure API access
 - **Protected API Routes**: All endpoints require valid authentication
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before running the application, ensure you have:
 
@@ -47,7 +47,7 @@ Before running the application, ensure you have:
 3. **OpenWeatherMap API Key** - Get free API key at [OpenWeatherMap](https://openweathermap.org/api)
 4. **Auth0 Account** - Create free account at [Auth0](https://auth0.com/)
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -105,7 +105,7 @@ const audience = "https://weather-api.fidenz.com"
 
 Update these values with your Auth0 credentials.
 
-## 🔐 Auth0 Configuration
+## Auth0 Configuration
 
 ### Step 1: Create Auth0 Application
 1. Login to [Auth0 Dashboard](https://manage.auth0.com/)
@@ -146,7 +146,7 @@ In your Auth0 Application settings:
    - **Password**: `Pass#fidenz`
 4. Verify the email address
 
-## ▶️ Running the Application
+## Running the Application
 
 ### 1. Start the Backend Server
 ```bash
@@ -178,7 +178,7 @@ The frontend will run on `http://localhost:5173` or `http://localhost:5174`
 4. Complete MFA if prompted (check email)
 5. View the weather dashboard with city cards
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Weather Endpoints
 | Method | Endpoint | Description | Authentication |
@@ -192,7 +192,7 @@ The frontend will run on `http://localhost:5173` or `http://localhost:5174`
 4. Backend validates JWT using Auth0's public key
 5. Protected data is returned
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 fidenz-weather-app-nethma/
@@ -233,7 +233,7 @@ fidenz-weather-app-nethma/
 └── TROUBLESHOOTING_401.md       # 401 error solutions
 ```
 
-## 🎨 Key Features Implementation
+## Key Features Implementation
 
 ### 1. Authentication & Authorization
 - **Auth0 Integration**: Secure user authentication using industry-standard OAuth 2.0
@@ -267,17 +267,17 @@ The frontend implementation features:
 - **Smooth Transitions**: Polished user experience with CSS transitions
 - **Typography**: Clean, readable font hierarchy
 
-## 🔒 Security Features
+## Security Features
 
-- ✅ **Authentication Required**: All routes protected by Auth0
-- ✅ **JWT Token Validation**: Server validates tokens on every request
-- ✅ **HTTPS Ready**: Production-ready security configuration
-- ✅ **Environment Variables**: Sensitive data stored securely in `.env` files
-- ✅ **CORS Configured**: Cross-Origin Resource Sharing properly set up
-- ✅ **No Public Signups**: Only pre-registered users can access
-- ✅ **MFA Support**: Multi-factor authentication via email
+- **Authentication Required**: All routes protected by Auth0
+- **JWT Token Validation**: Server validates tokens on every request
+- **HTTPS Ready**: Production-ready security configuration
+- **Environment Variables**: Sensitive data stored securely in `.env` files
+- **CORS Configured**: Cross-Origin Resource Sharing properly set up
+- **No Public Signups**: Only pre-registered users can access
+- **MFA Support**: Multi-factor authentication via email
 
-## 🧪 Testing the Application
+## Testing the Application
 
 ### Test Credentials
 - **Email**: `careers@fidenz.com`
@@ -311,7 +311,7 @@ The frontend implementation features:
    - Should return to login prompt
    - Try accessing dashboard → Should be redirected to login
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### 401 Unauthorized Error
 **Problem**: API requests return 401 Unauthorized
@@ -360,13 +360,13 @@ The frontend implementation features:
 - Kill the process using port 5000
 - On Windows: `netstat -ano | findstr :5000` then `taskkill /PID <PID> /F`
 
-## 📚 Additional Resources
+## Additional Resources
 
 - **Auth0 Setup Guide**: `AUTH0_SETUP_GUIDE.md` - Complete authentication setup
 - **API Configuration**: `AUTH0_API_SETUP.md` - Auth0 API creation steps
 - **Troubleshooting**: `TROUBLESHOOTING_401.md` - Detailed 401 error solutions
 
-## 🔗 External Links
+## External Links
 
 - [Auth0 Documentation](https://auth0.com/docs)
 - [OpenWeatherMap API Docs](https://openweathermap.org/api)
@@ -375,7 +375,7 @@ The frontend implementation features:
 - [Tailwind CSS](https://tailwindcss.com)
 - [MongoDB Documentation](https://docs.mongodb.com)
 
-## 👨‍💻 Development
+## Development
 
 ### Available Scripts
 
@@ -394,7 +394,7 @@ npm run preview    # Preview production build
 npm run lint       # Run ESLint
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Backend Deployment (Heroku, Railway, etc.)
 1. Set environment variables in hosting platform
@@ -407,7 +407,7 @@ npm run lint       # Run ESLint
 3. Update Auth0 application URLs
 4. Set environment variables if needed
 
-## 📝 Environment Variables Reference
+## Environment Variables Reference
 
 ### Backend (`.env`)
 ```env
@@ -425,17 +425,17 @@ clientId: "your_client_id"                   # Auth0 application client ID
 audience: "https://weather-api.fidenz.com"   # Auth0 API audience
 ```
 
-## ⚖️ License
+## License
 
 This project is created for educational purposes as part of the Fidenz Technologies internship assignment.
 
-## 👤 Author
+## Author
 
 **Nethma Dewmini**
 - GitHub: [@nethma-dewmini](https://github.com/nethma-dewmini)
 - Repository: fidenz-weather-app-assignment-nethma
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Fidenz Technologies for the internship opportunity
 - Auth0 for authentication platform
@@ -444,5 +444,5 @@ This project is created for educational purposes as part of the Fidenz Technolog
 
 ---
 
-**© 2024 Fidenz Technologies | Weather App Assignment**
+**2024 Fidenz Technologies | Weather App Assignment**
 
