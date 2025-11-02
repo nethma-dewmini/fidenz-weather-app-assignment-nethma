@@ -11,10 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // connect to mongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
 
 .then( () => console.log('MongoDB connected'))
 .catch(err => console.log('MongoDB connection error:', err));
@@ -25,6 +22,11 @@ app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
+  if (req.headers.authorization) {
+    console.log('Authorization header present:', req.headers.authorization.substring(0, 30) + '...');
+  } else {
+    console.log('No Authorization header');
+  }
   next();
 });
 

@@ -21,7 +21,13 @@ if (!isAuthenticated) {
 
     const fetchData = async () => {
       try {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: 'https://weather-api.fidenz.com',
+        }
+      });
+      console.log('Access token obtained:', token ? 'Token exists' : 'No token');
+      console.log('Token preview:', token ? token.substring(0, 50) + '...' : 'N/A');
 
         const response = await axios.get('/api/cities', {
                     headers: {
