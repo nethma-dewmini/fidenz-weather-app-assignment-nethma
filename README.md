@@ -74,7 +74,7 @@ PORT=5000
 MONGO_URI=mongodb+srv://your-username:your-password@cluster.mongodb.net/WeatherApp
 
 # OpenWeatherMap API
-OPENWEATHER_API_KEY=your_openweathermap_api_key
+OPENWEATHER_API_KEY=openweathermap_api_key
 
 # Auth0 Configuration
 AUTH0_ISSUER_BASE_URL=https://your-tenant.auth0.com
