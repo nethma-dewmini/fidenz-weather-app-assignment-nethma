@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import Dashboard from './pages/Dashboard'
 import ViewWeather from './pages/ViewWeather.jsx'
 import AuthButtons from './components/AuthButtons.jsx'
-import './App.css'
+import backgroundImg from './assets/background.png'
 
 function App() {
 
@@ -14,7 +14,15 @@ const { isAuthenticated, isLoading } = useAuth0();
   }
 
   return (
-    <div className="App min-h-screen flex flex-col items-center p-5 box-border relative app-background">
+    <div 
+      className="App min-h-screen flex flex-col items-center p-5 box-border relative"
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
      <AuthButtons />
       
     

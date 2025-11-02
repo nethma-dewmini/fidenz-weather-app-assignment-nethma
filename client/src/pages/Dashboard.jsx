@@ -5,7 +5,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import WeatherCard from "../components/WeatherCard";
 import Header from "../components/Header";
-import backgroundImg from "../assets/background.png";
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -54,16 +53,7 @@ if (!isAuthenticated) {
   }, [isAuthenticated, getAccessTokenSilently]);
 
   return (
-    <div 
-      className="dashboard-container w-full max-w-6xl"
-      style={{
-        backgroundImage: `url(${backgroundImg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="dashboard-container w-full max-w-6xl">
       <Header />
 
       {loading && (
@@ -75,7 +65,7 @@ if (!isAuthenticated) {
         <div className="text-center text-red-400 text-xl p-10">{error}</div>
       )}
       {!loading && !error && (
-        <div className="weather-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
+        <div className="weather-grid grid grid-cols-1 md:grid-cols-2 gap-6 py-5">
           {Array.isArray(weatherData) &&
             weatherData.map((city) => (
               <Link
