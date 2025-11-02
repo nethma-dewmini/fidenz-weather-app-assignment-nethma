@@ -4,10 +4,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const issuerBaseURL = "https://dev-447p4bv1gsmeqfqv.us.auth0.com";
-const audeience = "https://weather-api.fidenz.com";
+const audience = "https://weather-api.fidenz.com";
 
 const checkJwt = auth({
-    audience: audeience,
+    audience: audience,
     issuerBaseURL: issuerBaseURL,
     tokenSigningAlg: 'RS256',
 })
