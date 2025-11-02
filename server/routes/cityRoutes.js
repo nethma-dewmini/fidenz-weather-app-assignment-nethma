@@ -4,9 +4,11 @@ const {
     getWeather
     } = require("../controllers/weatherController");
 
+
+const checkJwt = require('../middleware/authRequired');
 const router = express.Router();
 
 //GET all city codes
-router.get("/", getWeather);
+router.get("/",checkJwt, getWeather);
 
 module.exports = router;
