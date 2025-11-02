@@ -65,7 +65,7 @@ if (!isAuthenticated) {
         <div className="text-center text-red-400 text-xl p-10">{error}</div>
       )}
       {!loading && !error && (
-        <div className="weather-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
+        <div className="weather-grid grid grid-cols-1 md:grid-cols-2 gap-6 py-5">
           {Array.isArray(weatherData) &&
             weatherData.map((city) => (
               <Link
