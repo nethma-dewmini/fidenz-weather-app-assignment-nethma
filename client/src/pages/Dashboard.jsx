@@ -1,57 +1,67 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import WeatherCard from '../components/WeatherCard';
-import Header from '../components/Header';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import WeatherCard from "../components/WeatherCard";
+import Header from "../components/Header";
 
 const Dashboard = () => {
-    const [weatherData, setWeatherData] = useState([]);
-    const [loading, setLoading] =  useState(true);
-    const [error, setError] = useState(null);
+  const [weatherData, setWeatherData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
-        try {
-            const response = await axios.get('/api/weather');
-            setWeatherData(response.data);
+      try {
+        const response = await axios.get("/api/cities");
+
+        if (Array.isArray(response.data)) {
+          setWeatherData(response.data);
+        } else {
+          throw new Error("Data received was not an array.");
         }
-        catch(err){
-            console.error("Error fetching dashboard data:", err);
-            setError("Failed to load weather data. Check server.");
-        }finally {
-            setLoading(false);
-        }
-    }
+      } catch (err) {
+        console.error("Error fetching dashboard data:", err);
+        setError("Failed to load weather data. Check server.");
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchData();
-}, []);
+  }, []);
 
-return (
+  return (
     <div className="dashboard-container w-full max-w-6xl">
-    <Header />
+      <Header />
 
-    {loading &&(
+      {loading && (
         <div className="text-center text-xl p-10">
-            Loading weather dashboard...
+          Loading weather dashboard...
         </div>
-    )}
-     {error && (
-        <div className="text-center text-red-400 text-xl p-10">
-            {error}
-            </div>
-     )}
-        {!loading && !error && (
-            <div className="weather-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
-                {weatherData.map(city => (
-                    <WeatherCard key={city.CityCode} cityData={city} />
-                ))}
-            </div>
-        )}
+      )}
+      {error && (
+        <div className="text-center text-red-400 text-xl p-10">{error}</div>
+      )}
+      {!loading && !error && (
+        <div className="weather-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
+          {Array.isArray(weatherData) &&
+            weatherData.map((city) => (
+              <Link
+                key={city.CityCode}
+                to={`/weather/${city.CityCode}`}
+                // Pass the city data to the next page to avoid another API call
+                state={{ cityData: city }}
+              >
+                <WeatherCard cityData={city} />
+              </Link>
+            ))}
+        </div>
+      )}
 
-        <footer className="footer-text text-center text-gray-400 text-sm py-10">
-             2021 Fidenz Technologies
-        </footer>
+      <footer className="footer-text text-center text-gray-400 text-sm py-10">
+        2021 Fidenz Technologies
+      </footer>
     </div>
-)
-
-}
+  );
+};
 
 export default Dashboard;

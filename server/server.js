@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
   res.json({ mssg: "weather app API is running" });
 });
 
-app.use('/api/weather', cityRoutes);
+app.use('/api/cities', cityRoutes);
 
 // listen for requests
 app.listen(PORT, () => {

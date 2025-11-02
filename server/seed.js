@@ -7,7 +7,7 @@ const City = require("./models/City");
 dotenv.config();
 
 const cities = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "..", "cities.json"), "utf-8")
+  fs.readFileSync(path.resolve(__dirname, "cities.json"), "utf-8")
 );
 
 // Connect to MongoDB
@@ -25,8 +25,8 @@ const importData = async () => {
     console.log("Old data cleared");
 
     const cityData = cities.List.map(city => ({
-      citycode: city.CityCode,
-      cityname: city.CityName,
+      CityCode: city.CityCode,
+      CityName: city.CityName,
       LastFetched: null,
       WeatherData: {}
     }));

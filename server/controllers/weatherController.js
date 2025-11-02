@@ -3,10 +3,10 @@ const City = require('../models/City');
 
 const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
 const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
-const CHACHE_DURATION_MS = 5*60*1000;
+const CACHE_DURATION_MS = 5*60*1000;
 
 const fetchWeatherData = async (cityCode) => {
-    const url = '${OPENWEATHER_BASE_URL}?id=${cityCode}&appid=${OPENWEATHER_API_KEY}&units=metric';
+    const url = `${OPENWEATHER_BASE_URL}?id=${cityCode}&appid=${OPENWEATHER_API_KEY}&units=metric`;
     try {
         const response = await axios.get(url);
 
@@ -26,7 +26,7 @@ const fetchWeatherData = async (cityCode) => {
         return processedData;
 
         } catch (error) {
-            console.error('Error fetching weather for CityCode ${cityCode}:',error.message)
+            console.error(`Error fetching weather for CityCode ${cityCode}:`, error.message);
             return null;
     }
 };
@@ -61,7 +61,7 @@ const getWeather = async (req, res) => {
         const responseData = cities.map((city, index) => ({
             CityCode: city.CityCode,
             CityName: city.CityName,
-            WeatherData: finalWeatherResults[index],
+            Weather: finalWeatherResults[index],
         }));
 
         res.json(responseData);
