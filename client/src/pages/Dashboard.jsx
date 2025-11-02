@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
+
 import WeatherCard from "../components/WeatherCard";
 import Header from "../components/Header";
 
@@ -9,10 +11,29 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+
   useEffect(() => {
+if (!isAuthenticated) {
+        setLoading(false);
+        return; 
+    }
+
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/cities");
+      const token = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: 'https://weather-api.fidenz.com',
+        }
+      });
+      console.log('Access token obtained:', token ? 'Token exists' : 'No token');
+      console.log('Token preview:', token ? token.substring(0, 50) + '...' : 'N/A');
+
+        const response = await axios.get('/api/cities', {
+                    headers: {
+                        Authorization: `Bearer ${token}`, 
+                    },
+                });
 
         if (Array.isArray(response.data)) {
           setWeatherData(response.data);
@@ -21,13 +42,15 @@ const Dashboard = () => {
         }
       } catch (err) {
         console.error("Error fetching dashboard data:", err);
-        setError("Failed to load weather data. Check server.");
+        setError("Failed to load weather data. Please ensure you are logged in.");
       } finally {
         setLoading(false);
       }
     };
+
+    setLoading(true);
     fetchData();
-  }, []);
+  }, [isAuthenticated, getAccessTokenSilently]);
 
   return (
     <div className="dashboard-container w-full max-w-6xl">
