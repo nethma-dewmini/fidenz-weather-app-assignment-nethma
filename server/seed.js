@@ -24,17 +24,16 @@ const importData = async () => {
     await City.deleteMany();
     console.log("Old data cleared");
 
-    const cityData = cities.List.map(city => ({
+    const cityData = cities.List.map((city) => ({
       CityCode: city.CityCode,
       CityName: city.CityName,
       LastFetched: null,
-      WeatherData: {}
+      WeatherData: {},
     }));
 
     await City.insertMany(cityData);
     console.log("Data successfully imported");
     process.exit();
-
   } catch (err) {
     console.error("Error importing data:", err);
     process.exit(1);

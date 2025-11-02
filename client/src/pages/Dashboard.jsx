@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import WeatherCard from "../components/WeatherCard";
 import Header from "../components/Header";
@@ -14,26 +14,32 @@ const Dashboard = () => {
   const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   useEffect(() => {
-if (!isAuthenticated) {
-        setLoading(false);
-        return; 
+    if (!isAuthenticated) {
+      setLoading(false);
+      return;
     }
 
     const fetchData = async () => {
       try {
-      const token = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: 'https://weather-api.fidenz.com',
-        }
-      });
-      console.log('Access token obtained:', token ? 'Token exists' : 'No token');
-      console.log('Token preview:', token ? token.substring(0, 50) + '...' : 'N/A');
+        const token = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: "https://weather-api.fidenz.com",
+          },
+        });
+        console.log(
+          "Access token obtained:",
+          token ? "Token exists" : "No token"
+        );
+        console.log(
+          "Token preview:",
+          token ? token.substring(0, 50) + "..." : "N/A"
+        );
 
-        const response = await axios.get('/api/cities', {
-                    headers: {
-                        Authorization: `Bearer ${token}`, 
-                    },
-                });
+        const response = await axios.get("/api/cities", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         if (Array.isArray(response.data)) {
           setWeatherData(response.data);
@@ -42,7 +48,9 @@ if (!isAuthenticated) {
         }
       } catch (err) {
         console.error("Error fetching dashboard data:", err);
-        setError("Failed to load weather data. Please ensure you are logged in.");
+        setError(
+          "Failed to load weather data. Please ensure you are logged in."
+        );
       } finally {
         setLoading(false);
       }
