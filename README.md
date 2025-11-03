@@ -116,9 +116,9 @@ Update these values with your Auth0 credentials.
 
 ### Step 2: Configure Application Settings
 In your Auth0 Application settings:
-- **Allowed Callback URLs**: `http://localhost:5174, http://localhost:5173`
-- **Allowed Logout URLs**: `http://localhost:5174, http://localhost:5173`
-- **Allowed Web Origins**: `http://localhost:5174, http://localhost:5173`
+- **Allowed Callback URLs**: `http://localhost:5173`
+- **Allowed Logout URLs**: `http://localhost:5173`
+- **Allowed Web Origins**: `http://localhost:5173`
 
 ### Step 3: Create API in Auth0
 1. Go to **Applications** → **APIs**
@@ -169,7 +169,7 @@ Auth0 Config: { issuerBaseURL: '...', audience: '...' }
 cd client
 npm run dev
 ```
-The frontend will run on `http://localhost:5173` or `http://localhost:5174`
+The frontend will run on `http://localhost:5173`
 
 ### 3. Access the Application
 1. Open `http://localhost:5173` in your browser
@@ -253,9 +253,8 @@ fidenz-weather-app-nethma/
 - **Mobile-First**: Built with mobile devices as the primary target
 - **Tailwind CSS**: Utility-first CSS for rapid UI development
 - **Adaptive Grid**: Layout adjusts based on screen size
-  - Desktop: 3 columns
-  - Tablet: 2 columns
-  - Mobile: 1 column
+  - Desktop: 2 rows
+  - Mobile: 1 row
 - **Touch-Friendly**: Large touch targets for mobile users
 
 ### 4. UI Design
@@ -444,5 +443,5 @@ This project is created for educational purposes as part of the Fidenz Technolog
 
 ---
 
-**2024 Fidenz Technologies | Weather App Assignment**
+**Fidenz Technologies | Weather App Assignment**
 
