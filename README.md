@@ -71,7 +71,7 @@ Create a `.env` file in the `server` directory:
 PORT=5000
 
 # Database
-MONGO_URI=mongodb+srv://your-username:your-password@cluster.mongodb.net/WeatherApp
+MONGO_URI=mongodb+srv://your-username:your-password@cluster.mongodb.net/?appName=cluster
 
 # OpenWeatherMap API
 OPENWEATHER_API_KEY=openweathermap_api_key
