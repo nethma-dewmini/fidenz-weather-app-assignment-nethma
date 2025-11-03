@@ -228,9 +228,6 @@ fidenz-weather-app-nethma/
 │   └── .env                     # Environment variables
 │
 ├── README.md                    # This file
-├── AUTH0_SETUP_GUIDE.md         # Detailed Auth0 setup
-├── AUTH0_API_SETUP.md           # API configuration guide
-└── TROUBLESHOOTING_401.md       # 401 error solutions
 ```
 
 ## Key Features Implementation
@@ -318,7 +315,6 @@ The frontend implementation features:
 **Solutions**:
 1. **Create API in Auth0**: 
    - Make sure you created an API with identifier `https://weather-api.fidenz.com`
-   - See `AUTH0_API_SETUP.md` for detailed steps
 
 2. **Check Environment Variables**:
    - Verify `AUTH0_ISSUER_BASE_URL` and `AUTH0_AUDIENCE` in `server/.env`
@@ -358,12 +354,6 @@ The frontend implementation features:
 - Change `PORT` in `server/.env`
 - Kill the process using port 5000
 - On Windows: `netstat -ano | findstr :5000` then `taskkill /PID <PID> /F`
-
-## Additional Resources
-
-- **Auth0 Setup Guide**: `AUTH0_SETUP_GUIDE.md` - Complete authentication setup
-- **API Configuration**: `AUTH0_API_SETUP.md` - Auth0 API creation steps
-- **Troubleshooting**: `TROUBLESHOOTING_401.md` - Detailed 401 error solutions
 
 ## External Links
 
